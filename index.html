@@ -9,40 +9,43 @@
 
 	<div id="notify"></div>
 	
+	<a id="standard">Santard</a><br>
+	<a id="error">Erreur</a><br>
+	<a id="success">Ok</a>
+	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="js/mustache.js"></script>
 	<script src="js/jquery.shinynotify.js"></script>
 	<script>
 		$(function(){
 		
-			$('#notify').shinynotify({
-				title 	: 'Mon titre 2',
-				content : 'Courte description de la notification'
-			});
-		
-			$('#notify').shinynotify({
-				title 	: 'Mon titre 2',
-				content : 'Courte description de la notification',
-				icon	: 'ok',
-				type	: 'success'
-			});
-		
-			$('#notify').shinynotify({
-				title 	: 'Mon titre 2',
-				content : 'Courte description de la notification'
-			});
+			$('#standard').click((function(){
+				$('#notify').shinynotify({
+					title 	: 'Mon titre 2',
+					content : 'Courte description de la notification'
+				});
+				return false;
+			}));
 			
-			$('#notify').shinynotify({
-				title 	: 'Mon titre 2',
-				content : 'Courte description de la notification',
-				icon	: 'remove',
-				type	: 'error'
-			});
+			$('#error').click((function(){
+				$('#notify').shinynotify({
+					title 	: 'Mon titre 2',
+					content : 'Courte description de la notification',
+					icon 	: 'remove',
+					type	: 'error'
+				});
+				return false;
+			}));
 			
-			$('#notify').shinynotify({
-				title 	: 'Mon titre 2',
-				content : 'Courte description de la notification'
-			});
+			$('#success').click((function(){
+				$('#notify').shinynotify({
+					title 	: 'Mon titre 2',
+					content : 'Courte description de la notification',
+					icon 	: 'ok',
+					type	: 'success'
+				});
+				return false;
+			}));
 		
 			
 		});
