@@ -1,0 +1,53 @@
+/*--- functions ---*/
+
+.rounded(@radius:3px){
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+	-ms-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-o-border-radius: @radius;
+}
+
+.box_shadow(@rule : 0 0 3px fadeout(#000,50%)){
+	box-shadow: @rule;
+	-moz-box-shadow:  @rule;
+	-webkit-box-shadow: @rule;
+	-ms-box-shadow: @rule;
+	-o-box-shadow: @rule;
+}
+
+
+.text_shadow(@rule : 0 1px 0 fadeout(#000,50%)){
+	text-shadow: @rule;
+}
+
+.transition(@rule : all 0.25s ease-out 0ms){
+	-moz-transition: @rule;
+	-webkit-transition: @rule;
+	-ms-transition: @rule;
+	-o-transition: @rule;
+	transition: @rule;
+}
+
+.rotate(@deg:3deg){
+	-moz-transform: rotate(@deg);
+	-webkit-transform: rotate(@deg);
+	transform: rotate(@deg);
+}
+
+.gradient(@start: #000, @stop: lighten(#000,50%), @percent_stop: 0%, @percent_start: 100%) {
+
+	background: @start;
+	background: -moz-linear-gradient(top,  @stop @percent_stop, @start @percent_start);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(@percent_stop,@stop), color-stop(@percent_start,@start));
+	background: -webkit-linear-gradient(top,  @stop @percent_stop,@start @percent_start);
+	background: -o-linear-gradient(top,  @stop @percent_stop,@start @percent_start);
+	background: -ms-linear-gradient(top,  @stop @percent_stop,@start @percent_start);
+	background: linear-gradient(to bottom,  @stop @percent_stop,@start @percent_start);
+}
+
+.column(@count:2){
+	-moz-column-count:@count;
+	-webkit-column-count:@count;
+	column-count:@count;
+}

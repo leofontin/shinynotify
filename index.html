@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shinynotify</title>
+	<link rel="stylesheet" href="css/style.css" media="all">
+</head>
+<body>
+
+	<div id="notify"></div>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="js/mustache.js"></script>
+	<script src="js/jquery.shinynotify.js"></script>
+	<script>
+		$(function(){
+		
+			$('#notify').shinynotify({
+				title 	: 'Mon titre 2',
+				content : 'Courte description de la notification'
+			});
+		
+			$('#notify').shinynotify({
+				title 	: 'Mon titre 2',
+				content : 'Courte description de la notification',
+				icon	: 'ok',
+				type	: 'success'
+			});
+		
+			$('#notify').shinynotify({
+				title 	: 'Mon titre 2',
+				content : 'Courte description de la notification'
+			});
+			
+			$('#notify').shinynotify({
+				title 	: 'Mon titre 2',
+				content : 'Courte description de la notification',
+				icon	: 'remove',
+				type	: 'error'
+			});
+			
+			$('#notify').shinynotify({
+				title 	: 'Mon titre 2',
+				content : 'Courte description de la notification'
+			});
+		
+			
+		});
+	</script>
+</body>
+</html>

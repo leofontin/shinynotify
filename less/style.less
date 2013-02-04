@@ -1,0 +1,111 @@
+@import 'reset.less';
+@import 'function.less';
+@import 'base.less';
+@import 'fontawesome.less';
+
+* { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+	background: #ddd;
+	color: #000;
+	height: 100%;
+	font: 13px/1.5em 'Helvetica Neue', Arial, sans-serif;
+}
+
+#notify {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	overflow: hidden;
+	.rounded(3px);
+	.gradient(darken(#fff,10%),#fff);
+	@rule : inset 0 -1px 2px #fff, 0 5px 20px fade(#000,50%);
+	.box_shadow(@rule);
+}
+
+.notify-item {
+	width: 400px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #ddd;
+	position: relative;
+	cursor: pointer;
+	.text_shadow(0 1px 0 #fff);
+	
+	&:first-child { 
+		border-top: none; 
+		.rounded(3px 3px 0 0);
+	}
+	
+	&:last-child { 
+		border-bottom: none; 
+		.rounded(0 0 3px 3px);
+	}
+	
+	.notify-left {
+		width: 50px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		padding: 5px;
+		border-right: 1px solid #ddd;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 2em;
+		line-height: 35px;
+	}
+	
+	.notify-right {
+		padding: 5px 10px;
+		width: 350px;
+		margin-left: 50px;
+		position: relative;
+		border-left: 1px solid #fff;
+		color: lighten(#000,50%);
+		
+		.close {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			color: darken(#fff,20%);
+			cursor: pointer;
+			
+			&:hover { color: #2F2F2F; }
+		}
+		
+		h2 { color: #000; }
+	}
+	
+	&.success {
+		border-top: none;
+		border-bottom: 1px solid darken(#8bd62a,10%);
+		color: #fff;
+		.gradient(darken(#8bd62a,5%),#8bd62a);
+		.text_shadow(0 1px 0 fade(#000,10%));
+		
+		.notify-left { border-right: 1px solid darken(#8bd62a,5%); }
+		.notify-right { border-left: 1px solid lighten(#8bd62a,5%); }
+		
+		h2 { color: #fff; }
+		p { color: lighten(#8bd62a,30%); }
+		.close { color: lighten(#8bd62a,30%); }
+	}
+	
+	&.error {
+		border-top: none;
+		border-bottom: 1px solid darken(red,10%);
+		color: #fff;
+		.gradient(darken(red,5%),red);
+		.text_shadow(0 1px 0 fade(#000,10%));
+		
+		.notify-left { border-right: 1px solid darken(red,10%); }
+		.notify-right { border-left: 1px solid lighten(red,10%); }
+		
+		h2 { color: #fff; }
+		p { color: lighten(red,30%); }
+		.close { color: lighten(red,30%); }
+	}
+	
+}
