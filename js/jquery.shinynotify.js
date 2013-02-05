@@ -35,7 +35,8 @@
 		var $settings = {
 			title 	: 'Mon titre',
 			content : 'Contenu de la notification',
-			icon 	: 'warning-sign'
+			icon 	: 'warning-sign',
+			close   : 3000
 		}
 		
 		// fusion des opation avec les configuratio nde base
@@ -48,24 +49,49 @@
 			$contener = $(this);
 			
 			// création de la notification
-			$render = Mustache.render($tpl,$settings);
+			$render = $(Mustache.render($tpl,$settings));
 			$contener.append($render);
 			
+			
 			// affichage de la notification
-			$('.notify-item.hidden').removeClass('hidden')
-							 		.css({ opacity : 0 })
-							 		.animate({ opacity : 1 });
-							 
+			$render.removeClass('hidden')
+				   .css({ opacity : 0 })
+				   .animate({ opacity : 1 });
+			
+			
+			// fermeture automatique
+			if($settings['close'] != 0){
+				setTimeout(function(){
+					close($render);
+				},$settings['close']);
+			}
+						 
 			// fermeture de la notification
-			$('.notify-item').unbind('click').click(function(){
-				$(this).fadeTo(300,0,function(){
-					$(this).slideUp(200,function(){
-						$(this).remove();
-					})
-				});
+			$render.unbind('click').click(function(){
+				close($(this));
 			});
 			
 		});
+		
+		
+		
+		
+		
+		
+		/**
+		* CLOSE
+		* fermeture d'une notification
+		**/
+		
+		function close(item){
+		
+			item.fadeTo(300,0,function(){
+				item.slideUp(200,function(){
+					item.remove();
+				})
+			});
+			
+		}
 
 		
 	}
